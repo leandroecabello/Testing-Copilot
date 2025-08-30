@@ -51,7 +51,17 @@ EOL
     mkdir $projectName
     cd $projectName
     python -m venv venv
-    echo "from flask import Flask\napp = Flask(__name__)\n\n@app.route('/')\ndef hello_world():\n    return 'Hello, Python Minimal API!'\n\nif __name__ == '__main__':\n    app.run(debug=True)" > app.py
+    cat <<EOL > app.py
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, Python Minimal API!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+EOL
     echo "CREANDO PROYECTO DE PRUEBAS PARA PYTHON"
     mkdir tests
     echo "def test_placeholder(): pass" > tests/test_main.py
