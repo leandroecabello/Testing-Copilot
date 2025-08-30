@@ -27,7 +27,7 @@ case $option in
     echo "AGREGANDO UN ARCHIVO DE DOCKER EN EL PROYECTO DE MINIMAL API DE .NET"
     cd $projectName
     cat <<EOL > Dockerfile
-FROM mcr.microsoft.com/dotnet/core/sdk:8.0 AS base
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 COPY *.csproj ./
 RUN dotnet restore
