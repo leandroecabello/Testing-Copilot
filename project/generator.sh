@@ -36,7 +36,7 @@ RUN dotnet build -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/out .
+COPY --from=base /app/out .
 EXPOSE 80
 ENTRYPOINT ["dotnet", "$projectName.dll"]
 EOL
