@@ -90,7 +90,18 @@ EOL
       npm init -y
       npm install --save-dev typescript @types/node ts-node
       npx tsc --init
-      echo "import express from 'express';\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Hello, Node.js Minimal API with TypeScript!');\n});\n\napp.listen(3000, () => {\n  console.log('Server is running on port 3000');\n});" > index.ts
+      cat <<EOL > index.ts
+import express from 'express';
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, Node.js Minimal API with TypeScript!');
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+EOL
       echo "CREANDO PROYECTO DE PRUEBAS PARA NODE.JS"
       mkdir tests
       npm install --save-dev jest ts-jest @types/jest
