@@ -118,7 +118,18 @@ EOL
     else
       npm init -y
       npm install express
-      echo "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Hello, Node.js Minimal API!');\n});\n\napp.listen(3000, () => {\n  console.log('Server is running on port 3000');\n});" > index.js
+      cat <<EOL > index.js
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, Node.js Minimal API!');
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+EOL
       echo "CREANDO PROYECTO DE PRUEBAS PARA NODE.JS"
       mkdir tests
       npm install --save-dev jest
